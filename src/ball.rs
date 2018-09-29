@@ -2,45 +2,71 @@ use extend::ToFromC;
 use ffi;
 use na::Vector3;
 
+/// A ball simulation.
+///
+/// # Example
+///
+/// ```
+/// # extern crate chip;
+/// # extern crate nalgebra as na;
+/// # use na::Vector3;
+/// # use chip::Ball;
+/// let mut ball = Ball::new();
+/// ball.set_pos(Vector3::new(0.0, 0.0, 100.0));
+/// ball.set_vel(Vector3::new(300.0, 400.0, 500.0));
+///
+/// ball.step(1.0 / 120.0);
+/// println!("{:?}", ball.pos());
+/// ```
 pub struct Ball(ffi::Ball);
 
 impl Ball {
+    /// Creates a `Ball`.
     pub fn new() -> Self {
         Ball(unsafe { ffi::Ball::new() })
     }
 
+    /// Gets the ball's position.
     pub fn pos(&self) -> Vector3<f32> {
         Vector3::from_c(self.0.x)
     }
 
+    /// Sets the ball's position.
     pub fn set_pos(&mut self, pos: Vector3<f32>) {
         self.0.x = pos.to_c();
     }
 
+    /// Gets the ball's velocity.
     pub fn vel(&self) -> Vector3<f32> {
         Vector3::from_c(self.0.v)
     }
 
+    /// Sets the ball's velocity.
     pub fn set_vel(&mut self, vel: Vector3<f32>) {
         self.0.v = vel.to_c();
     }
 
+    /// Gets the ball's angular velocity.
     pub fn omega(&self) -> Vector3<f32> {
         Vector3::from_c(self.0.w)
     }
 
+    /// Sets the ball's angular velocity.
     pub fn set_omega(&mut self, omega: Vector3<f32>) {
         self.0.w = omega.to_c();
     }
 
+    /// Gets the time elapsed in the simulation.
     pub fn t(&self) -> f32 {
         self.0.t
     }
 
+    /// Sets the time elapsed in the simulation.
     pub fn set_t(&mut self, t: f32) {
         self.0.t = t;
     }
 
+    /// Simulates the next `dt` seconds, and updates the ball's physics values.
     pub fn step(&mut self, dt: f32) {
         unsafe { self.0.step(dt) };
     }

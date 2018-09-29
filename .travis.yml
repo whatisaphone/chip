@@ -1,0 +1,22 @@
+language: rust
+
+cache: cargo
+
+rust:
+  - 1.27.0
+  - stable
+
+script:
+  - cargo check --all-targets --features strict
+  # cargo test
+  # Testing can't happen on Travis right now because this lib requires Windows.
+
+matrix:
+  include:
+    - rust: nightly
+      before_script:
+        - rustup component add rustfmt-preview
+      script:
+        - cargo check --all-targets --features strict
+        - cargo fmt -- --check
+        - cargo rustdoc -- --deny warnings
