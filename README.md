@@ -30,8 +30,6 @@ bindgen \
     --generate-inline-functions \
     --no-layout-tests \
     --with-derive-default \
-    --raw-line '#![allow(dead_code, non_camel_case_types, non_snake_case, missing_docs)]' \
-    --raw-line '' \
     --raw-line 'use ffi_types::{mat3, vec3};' \
     --whitelist-type Ball \
     --whitelist-type Car \

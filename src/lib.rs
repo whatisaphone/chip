@@ -18,5 +18,12 @@ pub use ffi::Input;
 mod ball;
 mod car;
 mod extend;
+#[allow(
+    dead_code,
+    non_camel_case_types,
+    non_snake_case,
+    non_upper_case_globals,
+    missing_docs
+)]
 mod ffi;
 mod ffi_types;
