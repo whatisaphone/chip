@@ -1,6 +1,6 @@
 [package]
 name = "chip"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["John Simon <john@whatisaph.one>"]
 include = ["Cargo.toml", "build.rs", "src/**/*", "upstream/**/*"]
 description = "Lobot bindings for Rust"

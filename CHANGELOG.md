@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.0.3 – 2018-10-07
 
 ### Fixed
 
