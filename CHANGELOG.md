@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+
+* Fixed linker errors caused by a file mistakenly being excluded from the
+  package.
+
 ## v0.0.2 – 2018-10-07
 
 ### Changed
