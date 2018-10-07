@@ -4,9 +4,10 @@ version = "0.0.1"
 authors = ["John Simon <john@whatisaph.one>"]
 include = ["Cargo.toml", "src/**/*", "upstream/**/*"]
 description = "Lobot bindings for Rust"
+documentation = "https://docs.rs/chip/"
 repository = "https://github.com/whatisaphone/chip"
 readme = "README-crates-io.md"
-keywords = ["chip", "lobot", "simulation", "rocket-league", "game"]
+keywords = ["rlbot", "lobot", "simulation", "rocket-league", "game"]
 license = "MIT"
 
 [badges]
