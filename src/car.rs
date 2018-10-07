@@ -1,6 +1,6 @@
 use extend::ToFromC;
 use ffi;
-use na::{Matrix3, Rotation3, Vector3};
+use na::{Matrix3, Point3, Rotation3, Vector3};
 
 /// A car simulation.
 ///
@@ -9,10 +9,10 @@ use na::{Matrix3, Rotation3, Vector3};
 /// ```
 /// # extern crate chip;
 /// # extern crate nalgebra as na;
-/// # use na::{Rotation3, Vector3};
+/// # use na::{Point3, Rotation3, Vector3};
 /// # use chip::{Car, Input};
 /// let mut car = Car::new();
-/// car.set_pos(Vector3::new(0.0, 0.0, 17.01));
+/// car.set_pos(Point3::new(0.0, 0.0, 17.01));
 /// car.set_vel(Vector3::new(300.0, 400.0, 500.0));
 /// car.set_theta(Rotation3::identity());
 /// car.set_on_ground(true);
@@ -39,12 +39,12 @@ impl Car {
     }
 
     /// Gets the car's position.
-    pub fn pos(&self) -> Vector3<f32> {
-        Vector3::from_c(self.0.x)
+    pub fn pos(&self) -> Point3<f32> {
+        Point3::from_c(self.0.x)
     }
 
     /// Sets the car's position.
-    pub fn set_pos(&mut self, pos: Vector3<f32>) {
+    pub fn set_pos(&mut self, pos: Point3<f32>) {
         self.0.x = pos.to_c();
     }
 
@@ -92,13 +92,13 @@ impl Car {
 #[cfg(test)]
 mod tests {
     use car::Car;
-    use na::Vector3;
+    use na::{Point3, Vector3};
 
     #[test]
     fn car() {
         let mut car = Car::new();
         car.set_on_ground(true);
-        car.set_pos(Vector3::zeros());
+        car.set_pos(Point3::origin());
         car.set_vel(Vector3::new(1000.0, 0.0, 0.0));
         car.step(Default::default(), 1.0 / 120.0);
         println!("{:?}", car.pos());
