@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+* `max_curvature` function.
+
 ## v0.0.3 – 2018-10-07
 
 ### Fixed
