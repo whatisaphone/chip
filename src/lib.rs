@@ -1,9 +1,10 @@
 /*!
-This is a Rust binding to [Lobot], created by Sam Mish (aka chip). Lobot is a
-Rocket League bot, and a collection of tools used to make predictions about how
-the car and ball behave. Implementation notes can be found on chip's [blog].
+This is a Rust binding to [RLUtilities], created by Sam Mish (aka chip).
+RLUtilities aims to provide a way for members of the RLBot community to
+contribute their ideas to a common set of tools for arithmetic, simulation, and
+car controllers. Implementation notes can be found on chip's [blog].
 
-[Lobot]: https://github.com/samuelpmish/Utilities
+[RLUtilities]: https://github.com/samuelpmish/RLUtilities
 [blog]: https://samuelpmish.github.io/notes/RocketLeague/
 */
 
