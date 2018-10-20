@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-### Added
+### v0.0.4 – 2018-10-20
 
 * `max_curvature` function.
 
