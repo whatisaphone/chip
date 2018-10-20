@@ -12,7 +12,7 @@ the car and ball behave. Implementation notes can be found on chip's [blog].
 extern crate nalgebra as na;
 
 pub use ball::Ball;
-pub use car::Car;
+pub use car::{max_curvature, max_speed, Car};
 pub use ffi::Input;
 
 mod ball;

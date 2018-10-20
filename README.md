@@ -35,6 +35,8 @@ bindgen \
     --raw-line 'use ffi_types::{mat3, vec3};' \
     --whitelist-type Ball \
     --whitelist-type Car \
+    --whitelist-function max_curvature \
+    --whitelist-function max_speed \
     --blacklist-type mat3 \
     --blacklist-type vec3 \
     --blacklist-type '^mat_mat<.+' \

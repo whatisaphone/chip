@@ -842,3 +842,11 @@ impl Car {
         __bindgen_tmp
     }
 }
+extern "C" {
+    #[link_name = "\u{1}?max_curvature@@YAMM@Z"]
+    pub fn max_curvature(speed: f32) -> f32;
+}
+extern "C" {
+    #[link_name = "\u{1}?max_speed@@YAMM@Z"]
+    pub fn max_speed(curvature: f32) -> f32;
+}

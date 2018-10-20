@@ -2,6 +2,24 @@ use extend::ToFromC;
 use ffi;
 use na::{Matrix3, Point3, Rotation3, Vector3};
 
+/// Estimates a car's maximum curvature while traveling a given speed.
+///
+/// Curvature is defined as 1 ÷ the radius of a circle drawn with that
+/// curvature.
+pub fn max_curvature(speed: f32) -> f32 {
+    unsafe { ffi::max_curvature(speed) }
+}
+
+/// Estimates the maximum speed a car can be traveling while turning with the
+/// given curvature.
+///
+/// Curvature is defined as 1 ÷ the radius of a circle drawn with that
+/// curvature.
+#[doc(hidden)]
+pub fn max_speed(curvature: f32) -> f32 {
+    unsafe { ffi::max_speed(curvature) }
+}
+
 /// A car simulation.
 ///
 /// # Example
@@ -91,12 +109,27 @@ impl Car {
 
 #[cfg(test)]
 mod tests {
-    use car::Car;
+    use car;
     use na::{Point3, Vector3};
 
     #[test]
+    fn max_curvature() {
+        let result = car::max_curvature(0.0);
+        assert!((result - 0.0069).abs() < 0.001, "{}", result);
+    }
+
+    #[test]
+    fn max_speed() {
+        let result = car::max_speed(0.00398);
+        // This function is buggy. The bug has been acknowledged by chip. Once
+        // it's fixed upstream, fix this test and remove `#[doc(hidden)]` from
+        // the function.
+        assert_eq!(result, -1.0);
+    }
+
+    #[test]
     fn car() {
-        let mut car = Car::new();
+        let mut car = car::Car::new();
         car.set_on_ground(true);
         car.set_pos(Point3::origin());
         car.set_vel(Vector3::new(1000.0, 0.0, 0.0));
