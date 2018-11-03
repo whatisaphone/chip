@@ -25,6 +25,9 @@ car controllers. Implementation notes can be found on chip's [blog].
 
 ### To generate bindings
 
+Unfortunately the blacklist of `vec_vec` does not work, so a few invalid
+declarations need to be removed by hand from the generated file :(
+
 ```sh
 chip=<path-to-lobot>
 bindgen \
@@ -43,5 +46,5 @@ bindgen \
     --blacklist-type '^mat_mat<.+' \
     --blacklist-type '^vec_vec<.+' \
     -- \
-    -I "$chip/cpp/inc"
+    -I "$chip/RLUtilities/cpp/inc"
 ```

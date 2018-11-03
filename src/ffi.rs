@@ -745,6 +745,7 @@ pub struct Input {
     pub jump: bool,
     pub boost: bool,
     pub slide: bool,
+    pub handbrake: bool,
 }
 #[repr(C)]
 pub struct Car {
@@ -759,6 +760,7 @@ pub struct Car {
     pub boost: ::std::os::raw::c_int,
     pub can_dodge: bool,
     pub dodge_timer: f32,
+    pub time: f32,
     pub hitbox_widths: vec3,
     pub hitbox_offset: vec3,
     pub team: ::std::os::raw::c_int,

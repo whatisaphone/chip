@@ -15,7 +15,6 @@ pub fn max_curvature(speed: f32) -> f32 {
 ///
 /// Curvature is defined as 1 ÷ the radius of a circle drawn with that
 /// curvature.
-#[doc(hidden)]
 pub fn max_speed(curvature: f32) -> f32 {
     unsafe { ffi::max_speed(curvature) }
 }
@@ -121,10 +120,7 @@ mod tests {
     #[test]
     fn max_speed() {
         let result = car::max_speed(0.00398);
-        // This function is buggy. The bug has been acknowledged by chip. Once
-        // it's fixed upstream, fix this test and remove `#[doc(hidden)]` from
-        // the function.
-        assert_eq!(result, -1.0);
+        assert!((result - 500.0).abs() < 0.001, "{}", result);
     }
 
     #[test]
