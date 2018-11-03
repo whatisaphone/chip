@@ -2,7 +2,13 @@
 
 ## Unreleased
 
-### v0.0.4 – 2018-10-20
+### Added
+
+* `max_speed` function.
+
+## v0.0.4 – 2018-10-20
+
+### Added
 
 * `max_curvature` function.
 
