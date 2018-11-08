@@ -1,5 +1,4 @@
-use extend::ToFromC;
-use ffi;
+use cpp::{ffi, marshal::ToFromC};
 use na::{Point3, Vector3};
 
 /// A ball simulation.
@@ -74,7 +73,7 @@ impl Ball {
 
 #[cfg(test)]
 mod tests {
-    use ball::Ball;
+    use cpp::ball::Ball;
     use na::{Point3, Vector3};
 
     #[test]

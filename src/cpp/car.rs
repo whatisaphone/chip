@@ -1,5 +1,4 @@
-use extend::ToFromC;
-use ffi;
+use cpp::{ffi, marshal::ToFromC};
 use na::{Matrix3, Point3, Rotation3, Vector3};
 
 /// Estimates a car's maximum curvature while traveling a given speed.
@@ -108,7 +107,7 @@ impl Car {
 
 #[cfg(test)]
 mod tests {
-    use car;
+    use cpp::car;
     use na::{Point3, Vector3};
 
     #[test]

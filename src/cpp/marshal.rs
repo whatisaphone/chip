@@ -47,7 +47,7 @@ impl<N: Real> ToFromC<[N; 9]> for Matrix3<N> {
 
 #[cfg(test)]
 mod tests {
-    use extend::ToFromC;
+    use cpp::marshal::ToFromC;
     use na::{Matrix3, Point3, Vector3};
 
     #[test]
