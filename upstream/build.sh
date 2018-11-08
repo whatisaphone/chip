@@ -43,4 +43,4 @@ bindgen "${args[@]}"
 
 # Bindgen interprets vec/mat incorrectly and thinks the floats are ints. Fix it
 # with a very blunt hammer.
-sed -i 's/\[u32;/\[f32;/g' "$root"/src/ffi.rs
+sed -i 's/\[\s*u32\s*;/\[f32;/g' "$root"/src/ffi.rs

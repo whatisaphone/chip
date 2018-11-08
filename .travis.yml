@@ -1,3 +1,5 @@
+os: windows
+
 language: rust
 
 cache: cargo
@@ -6,17 +8,24 @@ rust:
   - 1.28.0
   - stable
 
+before_script:
+  - choco install -y python3 --version 3.6.5
+  - cargo install bindgen --version 0.43.1
 script:
+  - upstream/build.sh
   - cargo check --all-targets --features strict
-  # cargo test
-  # Testing can't happen on Travis right now because this lib requires Windows.
+  - cargo test
 
 matrix:
   include:
     - rust: nightly
       before_script:
+        - choco install -y python3 --version 3.6.5
+        - cargo install bindgen --version 0.43.1
         - rustup component add rustfmt-preview
       script:
+        - upstream/build.sh
         - cargo check --all-targets --features strict
+        - cargo test
         - cargo fmt -- --check
         - cargo rustdoc -- --deny warnings
