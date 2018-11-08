@@ -27,4 +27,3 @@ mod extend;
     missing_docs
 )]
 mod ffi;
-mod ffi_types;

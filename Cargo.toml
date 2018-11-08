@@ -2,7 +2,12 @@
 name = "chip"
 version = "0.0.4"
 authors = ["John Simon <john@whatisaph.one>"]
-include = ["Cargo.toml", "build.rs", "src/**/*", "upstream/**/*"]
+include = [
+    "Cargo.toml",
+    "build.rs",
+    "src/**/*.rs",
+    "upstream/*.lib",
+]
 description = "Lobot bindings for Rust"
 documentation = "https://docs.rs/chip/"
 repository = "https://github.com/whatisaphone/chip"

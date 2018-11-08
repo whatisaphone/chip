@@ -18,33 +18,15 @@ car controllers. Implementation notes can be found on chip's [blog].
 
 * Windows
 * Rust
-* bindgen (which requires clang)
-* [RLUtilities]
-  * It has its own prerequisites (cmake, Visual Studio, Python 3)
-  * Build `bot_utils.lib` and copy it into `upstream/`.
+* [bindgen]
+* bindgen's prerequisites (clang)
+* [RLUtilities]'s prerequisites (cmake, Visual Studio, Python 3)
 
-### To generate bindings
+[bindgen]: https://rust-lang-nursery.github.io/rust-bindgen/
 
-Unfortunately the blacklist of `vec_vec` does not work, so a few invalid
-declarations need to be removed by hand from the generated file :(
+### Getting started
 
-```sh
-chip=<path-to-lobot>
-bindgen \
-    upstream/chip.hpp \
-    -o src/ffi.rs \
-    --generate-inline-functions \
-    --no-layout-tests \
-    --with-derive-default \
-    --raw-line 'use ffi_types::{mat3, vec3};' \
-    --whitelist-type Ball \
-    --whitelist-type Car \
-    --whitelist-function max_curvature \
-    --whitelist-function max_speed \
-    --blacklist-type mat3 \
-    --blacklist-type vec3 \
-    --blacklist-type '^mat_mat<.+' \
-    --blacklist-type '^vec_vec<.+' \
-    -- \
-    -I "$chip/RLUtilities/cpp/inc"
-```
+You'll need to get the upstream C++ compiling successfully. Hopefully it's as
+simple as running `upstream/build.sh` and then `cargo test`. Bindgen will output
+a generous serving of errors, but as long as the tests pass, the errors from
+bindgen can be ignored.
