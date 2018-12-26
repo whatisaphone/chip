@@ -29,7 +29,7 @@ Unfortunately the blacklist of `vec_vec` does not work, so a few invalid
 declarations need to be removed by hand from the generated file :(
 
 ```sh
-chip=<path-to-lobot>
+chip=<path-to-rlutilities>
 bindgen \
     upstream/chip.hpp \
     -o src/ffi.rs \
