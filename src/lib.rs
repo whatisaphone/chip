@@ -15,6 +15,7 @@ extern crate nalgebra as na;
 pub use ball::Ball;
 pub use car::{max_curvature, max_speed, Car};
 pub use ffi::Input;
+pub use mat::euler_rotation;
 
 mod ball;
 mod car;
@@ -28,3 +29,4 @@ mod extend;
 )]
 mod ffi;
 mod ffi_types;
+mod mat;

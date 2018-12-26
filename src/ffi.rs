@@ -433,6 +433,10 @@ impl Default for std_vector {
         unsafe { ::std::mem::zeroed() }
     }
 }
+extern "C" {
+    #[link_name = "\u{1}?euler_rotation@@YA?AV?$mat@$02$02@@AEBV?$vec@$02@@@Z"]
+    pub fn euler_rotation(pyr: *const [f32; 3usize]) -> [f32; 9usize];
+}
 #[repr(C)]
 #[derive(Debug, Default, Copy, Clone)]
 pub struct int2 {
