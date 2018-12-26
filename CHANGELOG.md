@@ -1,10 +1,11 @@
 # Changelog
 
-## Unreleased
+## v0.0.5 – 2018-12-26
 
 ### Added
 
 * `max_speed` function.
+* `euler_rotation` function.
 
 ## v0.0.4 – 2018-10-20
 

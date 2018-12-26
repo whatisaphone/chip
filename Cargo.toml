@@ -1,6 +1,6 @@
 [package]
 name = "chip"
-version = "0.0.4"
+version = "0.0.5"
 authors = ["John Simon <john@whatisaph.one>"]
 include = ["Cargo.toml", "build.rs", "src/**/*", "upstream/**/*"]
 description = "RLUtilities bindings for Rust"
