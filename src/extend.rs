@@ -1,11 +1,11 @@
-use na::{Matrix3, Point3, Real, Vector3};
+use na::{Matrix3, Point3, RealField, Vector3};
 
 pub trait ToFromC<T> {
     fn from_c(T) -> Self;
     fn to_c(&self) -> T;
 }
 
-impl<N: Real> ToFromC<[N; 3]> for Vector3<N> {
+impl<N: RealField> ToFromC<[N; 3]> for Vector3<N> {
     fn from_c(x: [N; 3]) -> Self {
         Vector3::new(x[0], x[1], x[2])
     }
@@ -15,7 +15,7 @@ impl<N: Real> ToFromC<[N; 3]> for Vector3<N> {
     }
 }
 
-impl<N: Real> ToFromC<[N; 3]> for Point3<N> {
+impl<N: RealField> ToFromC<[N; 3]> for Point3<N> {
     fn from_c(x: [N; 3]) -> Self {
         Point3::new(x[0], x[1], x[2])
     }
@@ -25,7 +25,7 @@ impl<N: Real> ToFromC<[N; 3]> for Point3<N> {
     }
 }
 
-impl<N: Real> ToFromC<[N; 9]> for Matrix3<N> {
+impl<N: RealField> ToFromC<[N; 9]> for Matrix3<N> {
     fn from_c(x: [N; 9]) -> Self {
         Matrix3::new(x[0], x[1], x[2], x[3], x[4], x[5], x[6], x[7], x[8])
     }
